@@ -18,7 +18,7 @@
  * 
  */
 #define LPRINT_TARGET(__func__) \
-  void LPUTC(char c) { __func__(c) }
+  void LPUTC(char c) { __func__(c); }
 
 /**
  * @brief This function should be override to implement lprint
