@@ -332,7 +332,7 @@ void rtc_setAlarmAAfter(uint32_t seconds)
 	LL_RTC_TimeTypeDef rtc_time;
 	LL_RTC_AlarmTypeDef alarm;
 
-	uint32_t alarm_unix = rtc_getUnixTime() + seconds;
+	uint32_t alarm_unix = rtc_getUnix() + seconds;
 	unix2time(alarm_unix, &localtime);
 
 	LL_RTC_DisableWriteProtection(RTC);
@@ -373,7 +373,7 @@ void rtc_setAlarmBAfter(uint32_t seconds)
 	LL_RTC_TimeTypeDef rtc_time;
 	LL_RTC_AlarmTypeDef alarm;
 
-	uint32_t alarm_unix = rtc_getUnixTime() + seconds;
+	uint32_t alarm_unix = rtc_getUnix() + seconds;
 	unix2time(alarm_unix, &localtime);
 
 	LL_RTC_DisableWriteProtection(RTC);
