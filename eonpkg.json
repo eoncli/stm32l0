@@ -9,11 +9,24 @@
     "programmer": "stcubeprog",
     "modules": [
         "gpio",
-        "spi",
-        "i2c"
+        "uart1",
+        "uart2"
     ],
     "targets": [{
-        "name": "stm32l031k6",
-        "variant": "STM32L031xx"
-    }]
+            "name": "stm32l031k6",
+            "variant": "STM32L031xx"
+        },
+        {
+            "name": "stm32l031k4",
+            "variant": "STM32L031xx"
+        },
+        {
+            "name": "stm32l031f4",
+            "variant": "STM32L031xx"
+        },
+        {
+            "name": "stm32l051c8",
+            "variant": "STM32L051xx"
+        }
+    ]
 }

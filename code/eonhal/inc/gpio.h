@@ -74,7 +74,35 @@ void gpio_mode(pin_t pin, mode_t mode, pull_t pull, speed_t speed);
  * @param {pull} 			NOPULL, PULLDOWN or PULLUP
  * @param {afx} 			AF_1, AF_2, ... , AF_7
  */
-void gpio_modeAF(pin_t pin, mode_t AF_PP_OD, pull_t pull, uint8_t AF_x);
+void gpio_modeAF(pin_t pin, mode_t afmode, pull_t pull, uint8_t afx);
+
+/**
+ * @brief Configure the specified pin for UART use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modeUART(pin_t pin);
+
+/**
+ * @brief Configure the specified pin for SPI use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modeSPI(pin_t pin);
+
+/**
+ * @brief Configure the specified pin for I2C use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modeI2C(pin_t pin);
+
+/**
+ * @brief Configure the specified pin for PWM use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modePWM(pin_t pin);
 
 /**
  * @brief Configure the speed of the pin configured as Alternate Function

@@ -108,6 +108,74 @@ void gpio_modeAF(pin_t pin, mode_t afmode, pull_t pull, uint8_t afx)
 }
 
 /**
+ * @brief Configure the specified pin for UART use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modeUART(pin_t pin)
+{
+	STM32_Pin_Info *pin_map = HAL_Pin_Map();
+
+	gpio_mode(pin, AF_PP, NOPULL, _af_speed);
+
+	if (pin_map[pin].pin < LL_GPIO_PIN_8)
+		LL_GPIO_SetAFPin_0_7(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].uartAF);
+	else
+		LL_GPIO_SetAFPin_8_15(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].uartAF);
+}
+
+/**
+ * @brief Configure the specified pin for SPI use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modeSPI(pin_t pin)
+{
+	STM32_Pin_Info *pin_map = HAL_Pin_Map();
+
+	gpio_mode(pin, AF_PP, NOPULL, _af_speed);
+
+	if (pin_map[pin].pin < LL_GPIO_PIN_8)
+		LL_GPIO_SetAFPin_0_7(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].spiAF);
+	else
+		LL_GPIO_SetAFPin_8_15(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].spiAF);
+}
+
+/**
+ * @brief Configure the specified pin for I2C use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modeI2C(pin_t pin)
+{
+	STM32_Pin_Info *pin_map = HAL_Pin_Map();
+
+	gpio_mode(pin, AF_OD, NOPULL, _af_speed);
+
+	if (pin_map[pin].pin < LL_GPIO_PIN_8)
+		LL_GPIO_SetAFPin_0_7(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].i2cAF);
+	else
+		LL_GPIO_SetAFPin_8_15(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].i2cAF);
+}
+
+/**
+ * @brief Configure the specified pin for PWM use
+ * 
+ * @param {pin}				Pin to be configured
+ */
+void gpio_modePWM(pin_t pin)
+{
+	STM32_Pin_Info *pin_map = HAL_Pin_Map();
+
+	gpio_mode(pin, AF_PP, NOPULL, _af_speed);
+
+	if (pin_map[pin].pin < LL_GPIO_PIN_8)
+		LL_GPIO_SetAFPin_0_7(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].timAF);
+	else
+		LL_GPIO_SetAFPin_8_15(pin_map[pin].GPIOx, pin_map[pin].pin, pin_map[pin].timAF);
+}
+
+/**
  * @brief Configure the speed of the pin configured as Alternate Function
  * 
  * @param {speed}	 SPEED_LOW, SPEED_MEDIUM, SPEED_HIGH, SPEED_VER_HIGH
