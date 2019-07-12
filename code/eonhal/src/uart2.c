@@ -122,28 +122,7 @@ void uart2_println(const char *s)
 	uart2_write('\n');
 }
 
-void uart2_printNum(unsigned long long n)
-{
-	unsigned char buf[10];
-	unsigned long i = 0;
-	if (n == 0)
-	{
-		uart2_write('0');
-	}
-
-	while (n > 0)
-	{
-		buf[i++] = n % 10;
-		n /= 10;
-	}
-
-	for (; i > 0; i--)
-	{
-		uart2_write((char)(buf[i - 1] < 10 ? '0' + buf[i - 1] : 'A' + buf[i - 1] - 10));
-	}
-}
-
-void uart2_printNumBase(unsigned long long n, uint8_t base)
+void uart2_printIntBase(uint32_t n, uint8_t base)
 {
 	unsigned char buf[10];
 	unsigned long i = 0;
@@ -190,7 +169,7 @@ void uart2_printFloat(double n, uint8_t decimals)
 	// Extract the integer part of the number and print it
 	int_part = (long long)n;
 	remainder = n - int_part;
-	uart2_printNum(int_part);
+	uart2_printInt(int_part);
 
 	// Print the decimal point, but only if there are digits beyond
 	if (decimals > 0)
@@ -203,21 +182,14 @@ void uart2_printFloat(double n, uint8_t decimals)
 	{
 		remainder *= 10.0;
 		to_print = (int)remainder;
-		uart2_printNum(to_print);
+		uart2_printInt(to_print);
 		remainder -= to_print;
 	}
 }
 
-void uart2_printlnNum(unsigned long long n)
+void uart2_printlnIntBase(uint32_t n, uint8_t base)
 {
-	uart2_printNum(n);
-	uart2_write('\r');
-	uart2_write('\n');
-}
-
-void uart2_printlnNumBase(unsigned long long n, uint8_t base)
-{
-	uart2_printNumBase(n, base);
+	uart2_printIntBase(n, base);
 	uart2_write('\r');
 	uart2_write('\n');
 }
@@ -227,6 +199,31 @@ void uart2_printlnFloat(double n, uint8_t decimals)
 	uart2_printFloat(n, decimals);
 	uart2_write('\r');
 	uart2_write('\n');
+}
+
+void uart2_printNum(int32_t n, uint8_t isfloat)
+{
+	uint16_t int_part;
+	uint8_t remainder;
+
+	// Handle negative numbers
+	if (n < 0)
+	{
+		uart2_write('-');
+		n = -n;
+	}
+
+	if (!isfloat)
+	{
+		uart2_printInt(n);
+		return;
+	}
+
+	remainder = n % 100;
+	int_part = (uint16_t)((n - remainder) / 100);
+	uart2_printInt(int_part);
+	uart2_write('.');
+	uart2_printInt(remainder);
 }
 
 /** 

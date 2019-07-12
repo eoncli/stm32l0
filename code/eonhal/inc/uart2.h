@@ -91,11 +91,11 @@ void uart2_printArray(char s[]);
 void uart2_println(const char *s);
 
 /**
- * @brief Print an integer
+ * @brief Macro for print an integer in base 10
  * 
  * @param {n} Integer 
  */
-void uart2_printNum(unsigned long long n);
+#define uart2_printInt(__x__) uart2_printIntBase((__x__), 10)
 
 /**
  * @brief Print an integer specifiying the desired base
@@ -103,7 +103,7 @@ void uart2_printNum(unsigned long long n);
  * @param {n} Integer 
  * @param {base} Base
  */
-void uart2_printNumBase(unsigned long long n, uint8_t base);
+void uart2_printIntBase(uint32_t n, uint8_t base);
 
 /**
  * @brief Print a float
@@ -118,7 +118,7 @@ void uart2_printFloat(double n, uint8_t decimals);
  * 
  * @param {n} Integer 
  */
-void uart2_printlnNum(unsigned long long n);
+#define uart2_printlnInt(__x__) uart2_printlnIntBase((__x__), 10)
 
 /**
  * @brief Print an integer specifiying the desired base and append a new line at the end
@@ -126,7 +126,7 @@ void uart2_printlnNum(unsigned long long n);
  * @param {n} Integer 
  * @param {base} Base
  */
-void uart2_printlnNumBase(unsigned long long n, uint8_t base);
+void uart2_printlnIntBase(uint32_t n, uint8_t base);
 
 /**
  * @brief Print a float and append a new line at the end
@@ -135,6 +135,14 @@ void uart2_printlnNumBase(unsigned long long n, uint8_t base);
  * @param {decimals} Number of digits you want for decimal part
  */
 void uart2_printlnFloat(double n, uint8_t decimals);
+
+/**
+ * @brief Print a number integer or float in a light way. Float numbers should be written as integer and put true in second argument.
+ * 
+ * @param {n} Number 
+ * @param {isfloat} True for float print and false for integer print
+ */
+void uart2_printNum(int32_t n, uint8_t isfloat);
 
 #endif
 

@@ -95,7 +95,7 @@ void uart1_println(const char *s);
  * 
  * @param {n} Integer 
  */
-void uart1_printNum(unsigned long long n);
+void uart1_printInt(uint32_t n);
 
 /**
  * @brief Print an integer specifiying the desired base
@@ -103,7 +103,7 @@ void uart1_printNum(unsigned long long n);
  * @param {n} Integer 
  * @param {base} Base
  */
-void uart1_printNumBase(unsigned long long n, uint8_t base);
+void uart1_printIntBase(uint32_t n, uint8_t base);
 
 /**
  * @brief Print a float
@@ -118,7 +118,7 @@ void uart1_printFloat(double n, uint8_t decimals);
  * 
  * @param {n} Integer 
  */
-void uart1_printlnNum(unsigned long long n);
+void uart1_printlnInt(uint32_t n);
 
 /**
  * @brief Print an integer specifiying the desired base and append a new line at the end
@@ -126,7 +126,7 @@ void uart1_printlnNum(unsigned long long n);
  * @param {n} Integer 
  * @param {base} Base
  */
-void uart1_printlnNumBase(unsigned long long n, uint8_t base);
+void uart1_printlnIntBase(uint32_t n, uint8_t base);
 
 /**
  * @brief Print a float and append a new line at the end
