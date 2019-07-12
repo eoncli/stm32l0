@@ -56,19 +56,73 @@
  ===============================================================================
  */
 
+/**
+ * @brief Configure the specified pin
+ * 
+ * @param {pin} Pin to be configured
+ * @param {mode} INPUT, ANALOG, OUTPUT_PP or OUTPUT_OD
+ * @param {pull} NOPULL, PULLDOWN or PULLUP 
+ * @param {speed} SPEED_LOW, SPEED_MEDIUM, SPEED_HIGH, SPEED_VER_HIGH
+ */
 void gpio_mode(pin_t pin, mode_t mode, pull_t pull, speed_t speed);
+
+/**
+ * @brief Configure the Alternate Function of the specified pin
+ * 
+ * @param {pin}				Pin to be configured
+ * @param {afmode} 		AF_PP or AF_OD
+ * @param {pull} 			NOPULL, PULLDOWN or PULLUP
+ * @param {afx} 			AF_1, AF_2, ... , AF_7
+ */
 void gpio_modeAF(pin_t pin, mode_t AF_PP_OD, pull_t pull, uint8_t AF_x);
+
+/**
+ * @brief Configure the speed of the pin configured as Alternate Function
+ * 
+ * @param {speed}	 SPEED_LOW, SPEED_MEDIUM, SPEED_HIGH, SPEED_VER_HIGH
+ */
 void gpio_setAFSpeed(speed_t speed);
+
+/**
+ * @brief Write HIGH or LOW to the specified pin
+ * 
+ * @param {pin} Pin to be written 
+ * @param {state} HIGH or LOW 
+ */
 void gpio_write(pin_t pin, uint8_t state);
+
+/**
+ * @brief Toggle the specified pin
+ * 
+ * @param {pin} Pin to be toggled 
+ */
 void gpio_toggle(pin_t pin);
+
+/**
+ * @brief Read the state of the specified pin
+ * 
+ * @param {pin} Pin to be read 
+ * @return {uint8_t} State of the pin: HIGH or LOW
+ */
 uint8_t gpio_read(pin_t pin);
 
 #include "pinmap_impl.h"
+/**
+ * @brief Switch the pin state to HIGH
+ * 
+ * @param {pin} Pin to be configured 
+ */
 __STATIC_INLINE void gpio_set(pin_t pin)
 {
   STM32_Pin_Info *pin_map = HAL_Pin_Map();
   LL_GPIO_SetOutputPin(pin_map[pin].GPIOx, pin_map[pin].pin);
 }
+
+/**
+ * @brief Switch the pin state to LOW
+ * 
+ * @param {pin} Pin to be configured 
+ */
 __STATIC_INLINE void gpio_reset(pin_t pin)
 {
   STM32_Pin_Info *pin_map = HAL_Pin_Map();
