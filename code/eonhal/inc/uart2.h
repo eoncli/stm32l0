@@ -103,7 +103,7 @@ void uart2_println(const char *s);
  * @param {n} Integer 
  * @param {base} Base
  */
-void uart2_printIntBase(uint64_t n, uint8_t base);
+void uart2_printIntBase(int64_t n, uint8_t base);
 
 /**
  * @brief Macro for print a float
@@ -125,7 +125,7 @@ void uart2_printIntBase(uint64_t n, uint8_t base);
  * @param {n} Integer 
  * @param {base} Base
  */
-void uart2_printlnIntBase(uint64_t n, uint8_t base);
+void uart2_printlnIntBase(int64_t n, uint8_t base);
 
 /**
  * @brief Print a float and append a new line at the end

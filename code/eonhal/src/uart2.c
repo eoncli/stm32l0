@@ -149,7 +149,7 @@ void uart2_printIntBase(int64_t n, uint8_t base)
 	}
 }
 
-void uart2_printlnIntBase(uint64_t n, uint8_t base)
+void uart2_printlnIntBase(int64_t n, uint8_t base)
 {
 	uart2_printIntBase(n, base);
 	uart2_write('\r');
