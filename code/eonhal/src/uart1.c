@@ -281,25 +281,4 @@ void uart1_readUntil(char buffer[], uint8_t terminator)
 	}
 }
 
-#ifdef ENABLE_CLASSES
-const ObjUart_t Serial1 = {
-		uart1_init,
-		uart1_off,
-		uart1_write,
-		uart1_available,
-		uart1_read,
-		uart1_peek,
-		uart1_readUntil,
-		uart1_print,
-		uart1_printArray,
-		uart1_println,
-		uart1_printNum,
-		uart1_printNumBase,
-		uart1_printFloat,
-		uart1_printlnNum,
-		uart1_printlnNumBase,
-		uart1_printlnFloat,
-};
-#endif
-
 #endif

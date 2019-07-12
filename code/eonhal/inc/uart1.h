@@ -136,11 +136,6 @@ void uart1_printlnNumBase(unsigned long long n, uint8_t base);
  */
 void uart1_printlnFloat(double n, uint8_t decimals);
 
-#ifdef ENABLE_CLASSES
-#include "oop_defs.h"
-extern const ObjUart_t Serial1;
-#endif
-
 #endif
 
 #endif

@@ -281,25 +281,4 @@ void uart2_readUntil(char buffer[], uint8_t terminator)
 	}
 }
 
-#ifdef ENABLE_CLASSES
-const ObjUart_t Serial2 = {
-		uart2_init,
-		uart2_off,
-		uart2_write,
-		uart2_available,
-		uart2_read,
-		uart2_peek,
-		uart2_readUntil,
-		uart2_print,
-		uart2_printArray,
-		uart2_println,
-		uart2_printNum,
-		uart2_printNumBase,
-		uart2_printFloat,
-		uart2_printlnNum,
-		uart2_printlnNumBase,
-		uart2_printlnFloat,
-};
-#endif
-
 #endif
