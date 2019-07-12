@@ -189,8 +189,8 @@ uint32_t rtc_getUnix(void)
 {
 	RTCTime_t rtc_time;
 	RTCDate_t rtc_date;
-	System_RTC_getTime(&rtc_time);
-	System_RTC_getDate(&rtc_date);
+	rtc_getTime(&rtc_time);
+	rtc_getDate(&rtc_date);
 	return time2unix(rtc_date.day, rtc_date.month, rtc_date.year, rtc_time.hours, rtc_time.minutes, rtc_time.seconds);
 }
 
@@ -332,7 +332,7 @@ void rtc_setAlarmAAfter(uint32_t seconds)
 	LL_RTC_TimeTypeDef rtc_time;
 	LL_RTC_AlarmTypeDef alarm;
 
-	uint32_t alarm_unix = System_RTC_getUnixTime() + seconds;
+	uint32_t alarm_unix = rtc_getUnixTime() + seconds;
 	unix2time(alarm_unix, &localtime);
 
 	LL_RTC_DisableWriteProtection(RTC);
@@ -373,7 +373,7 @@ void rtc_setAlarmBAfter(uint32_t seconds)
 	LL_RTC_TimeTypeDef rtc_time;
 	LL_RTC_AlarmTypeDef alarm;
 
-	uint32_t alarm_unix = System_RTC_getUnixTime() + seconds;
+	uint32_t alarm_unix = rtc_getUnixTime() + seconds;
 	unix2time(alarm_unix, &localtime);
 
 	LL_RTC_DisableWriteProtection(RTC);
