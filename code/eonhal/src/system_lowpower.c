@@ -71,7 +71,7 @@ static void nothing(void) {}
 
 static voidFuncPtr cur_clock = nothing;
 
-void system_init(void (*clockFunc)(void))
+void clock_init(void (*clockFunc)(void))
 {
 	clockFunc();
 	cur_clock = clockFunc;

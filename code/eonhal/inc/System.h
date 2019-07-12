@@ -41,13 +41,13 @@ extern "C"
 	uint32_t millis(void);
 
 	/* Clock Functions ***************************/
-	void System_HSI_32MHz(void);
-	void System_HSI_16MHz(void);
-	void System_HSI_8MHz(void);
-	void System_HSI_6MHz(void);
-	void System_HSI_4MHz(void);
-	void System_MSI_2MHz(void);
-	void system_init(void (*clockFunc)(void)); // Function defined in "system_lowpower_l0.c"
+	void CLOCK_HSI_32MHZ(void);
+	void CLOCK_HSI_16MHZ(void);
+	void CLOCK_HSI_8MHZ(void);
+	void CLOCK_HSI_6MHZ(void);
+	void CLOCK_HSI_4MHZ(void);
+	void CLOCK_MSI_2MHZ(void);
+	void clock_init(void (*clockFunc)(void)); // Function defined in "system_lowpower_l0.c"
 
 /* System RTC Functions **********************/
 //Definitions
