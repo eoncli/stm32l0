@@ -17,8 +17,7 @@
  * @brief Macro to define the override LPUTC function
  * 
  */
-#define LPRINT_TARGET(__func__) \
-  void LPUTC(char c) { __func__(c); }
+#define LPRINT_TARGET void LPUTC(char c)
 
 /**
  * @brief This function should be override to implement lprint
