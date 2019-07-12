@@ -10,7 +10,7 @@ __weak void LPUTC(char c)
 void LPUTC(char c) __attribute__((weak));
 #endif
 
-__STATIC_INLINE void _lprintIntBase(int64_t n, uint8_t base)
+static void _lprintIntBase(int64_t n, uint8_t base)
 {
   unsigned char buf[10];
   uint16_t i = 0;
@@ -37,7 +37,7 @@ __STATIC_INLINE void _lprintIntBase(int64_t n, uint8_t base)
   }
 }
 
-__STATIC_INLINE void _lprintNum(int64_t n, uint8_t isfloat){
+static void _lprintNum(int64_t n, uint8_t isfloat){
   uint32_t int_part;
 	uint8_t remainder;
 
