@@ -39,7 +39,7 @@ typedef struct
   volatile uint8_t tail;
 } UARTRingBuff_t;
 
-__STATIC_INLINE uart_rb_insert(UARTRingBuff_t *rb, uint8_t b)
+__STATIC_INLINE void uart_rb_insert(UARTRingBuff_t *rb, uint8_t b)
 {
   uint8_t i = (uint8_t)(rb->head + 1) % UART_BUFFER_SIZE;
   if (i != rb->tail)

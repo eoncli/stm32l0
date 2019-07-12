@@ -173,10 +173,10 @@ void uart1_printFloat(double n, uint8_t decimals)
 	uint8_t i = 0;
 
 	// Handle negative numbers
-	if (number < 0.0)
+	if (n < 0.0)
 	{
 		uart1_write('-');
-		number = -number;
+		n = -n;
 	}
 
 	// Simplistic rounding strategy so that e.g. print(1.999, 2)
@@ -185,11 +185,11 @@ void uart1_printFloat(double n, uint8_t decimals)
 	{
 		rounding /= 10.0;
 	}
-	number += rounding;
+	n += rounding;
 
 	// Extract the integer part of the number and print it
-	int_part = (long long)number;
-	remainder = number - int_part;
+	int_part = (long long)n;
+	remainder = n - int_part;
 	uart1_printNum(int_part);
 
 	// Print the decimal point, but only if there are digits beyond
