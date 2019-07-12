@@ -50,15 +50,15 @@ static void _lprintNum(int64_t n, uint8_t isfloat){
 
 	if (!isfloat)
 	{
-		lprintIntBase(n, 10);
+		_lprintIntBase(n, 10);
 		return;
 	}
 
 	remainder = n % 100;
 	int_part = (uint32_t)((n - remainder) / 100);
-	lprintIntBase(int_part, 10);
+	_lprintIntBase(int_part, 10);
 	LPUTC('.');
-	lprintIntBase(remainder, 10);
+	_lprintIntBase(remainder, 10);
 }
 
 
@@ -98,13 +98,13 @@ void lprint(const char *format, ...)
           case 'x':
             LPUTC('0');
             LPUTC('x');
-            lprintIntBase(w, 16);
+            _lprintIntBase(w, 16);
             break;
           case 'd':
-            lprintNum(w, 0);
+            _lprintNum(w, 0);
             break;
           case 'f':
-            lprintNum(w, 1);
+            _lprintNum(w, 1);
             break;
           }
         }
