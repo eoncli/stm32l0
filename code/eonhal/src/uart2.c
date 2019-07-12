@@ -143,60 +143,9 @@ void uart2_printIntBase(uint32_t n, uint8_t base)
 	}
 }
 
-void uart2_printFloat(double n, uint8_t decimals)
-{
-	int to_print;
-	long long int_part;
-	double remainder;
-	double rounding = 0.5;
-	uint8_t i = 0;
-
-	// Handle negative numbers
-	if (n < 0.0)
-	{
-		uart2_write('-');
-		n = -n;
-	}
-
-	// Simplistic rounding strategy so that e.g. print(1.999, 2)
-	// prints as "2.00"
-	for (i = 0; i < decimals; i++)
-	{
-		rounding /= 10.0;
-	}
-	n += rounding;
-
-	// Extract the integer part of the number and print it
-	int_part = (long long)n;
-	remainder = n - int_part;
-	uart2_printInt(int_part);
-
-	// Print the decimal point, but only if there are digits beyond
-	if (decimals > 0)
-	{
-		uart2_write('.');
-	}
-
-	// Extract digits from the remainder one at a time
-	while (decimals-- > 0)
-	{
-		remainder *= 10.0;
-		to_print = (int)remainder;
-		uart2_printInt(to_print);
-		remainder -= to_print;
-	}
-}
-
 void uart2_printlnIntBase(uint32_t n, uint8_t base)
 {
 	uart2_printIntBase(n, base);
-	uart2_write('\r');
-	uart2_write('\n');
-}
-
-void uart2_printlnFloat(double n, uint8_t decimals)
-{
-	uart2_printFloat(n, decimals);
 	uart2_write('\r');
 	uart2_write('\n');
 }
@@ -215,15 +164,22 @@ void uart2_printNum(int32_t n, uint8_t isfloat)
 
 	if (!isfloat)
 	{
-		uart2_printInt(n);
+		uart2_printIntBase(n, 10);
 		return;
 	}
 
 	remainder = n % 100;
 	int_part = (uint16_t)((n - remainder) / 100);
-	uart2_printInt(int_part);
+	uart2_printIntBase(int_part, 10);
 	uart2_write('.');
-	uart2_printInt(remainder);
+	uart2_printIntBase(remainder, 10);
+}
+
+void uart2_printlnNum(int32_t n, uint8_t isfloat)
+{
+	uart2_printNum(n, isfloat);
+	uart2_write('\r');
+	uart2_write('\n');
 }
 
 /** 

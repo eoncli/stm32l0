@@ -93,7 +93,7 @@ void uart2_println(const char *s);
 /**
  * @brief Macro for print an integer in base 10
  * 
- * @param {n} Integer 
+ * @param {__x__} Integer 
  */
 #define uart2_printInt(__x__) uart2_printIntBase((__x__), 10)
 
@@ -106,17 +106,16 @@ void uart2_println(const char *s);
 void uart2_printIntBase(uint32_t n, uint8_t base);
 
 /**
- * @brief Print a float
+ * @brief Macro for print a float
  * 
- * @param {n} Float number
- * @param {decimals} Number of digits you want for decimal part
+ * @param {__x__} Float number
  */
-void uart2_printFloat(double n, uint8_t decimals);
+#define uart2_printFloat(__x__) uart2_printNum((int32_t)((__x__)*100), 1)
 
 /**
- * @brief Print an integer and append a new line at the end
+ * @brief Macro for print an integer and append a new line at the end
  * 
- * @param {n} Integer 
+ * @param {__x__} Integer 
  */
 #define uart2_printlnInt(__x__) uart2_printlnIntBase((__x__), 10)
 
@@ -131,10 +130,9 @@ void uart2_printlnIntBase(uint32_t n, uint8_t base);
 /**
  * @brief Print a float and append a new line at the end
  * 
- * @param {n} Float number
- * @param {decimals} Number of digits you want for decimal part
+ * @param {__x__} Float number
  */
-void uart2_printlnFloat(double n, uint8_t decimals);
+#define uart2_printlnFloat(__x__) uart2_printlnNum((int32_t)((__x__)*100), 1)
 
 /**
  * @brief Print a number integer or float in a light way. Float numbers should be written as integer and put true in second argument.
@@ -143,6 +141,14 @@ void uart2_printlnFloat(double n, uint8_t decimals);
  * @param {isfloat} True for float print and false for integer print
  */
 void uart2_printNum(int32_t n, uint8_t isfloat);
+
+/**
+ * @brief Print a number integer or float in a light way. Float numbers should be written as integer and put true in second argument. And append a new line.
+ * 
+ * @param {n} Number 
+ * @param {isfloat} True for float print and false for integer print
+ */
+void uart2_printlnNum(int32_t n, uint8_t isfloat);
 
 #endif
 
