@@ -122,13 +122,19 @@ void uart2_println(const char *s)
 	uart2_write('\n');
 }
 
-void uart2_printIntBase(uint32_t n, uint8_t base)
+void uart2_printIntBase(int64_t n, uint8_t base)
 {
 	unsigned char buf[10];
-	unsigned long i = 0;
+	uint16_t i = 0;
 	if (n == 0)
 	{
 		uart2_write('0');
+	}
+
+	if (n < 0)
+	{
+		uart2_write('-');
+		n = -n;
 	}
 
 	while (n > 0)
@@ -143,16 +149,16 @@ void uart2_printIntBase(uint32_t n, uint8_t base)
 	}
 }
 
-void uart2_printlnIntBase(uint32_t n, uint8_t base)
+void uart2_printlnIntBase(uint64_t n, uint8_t base)
 {
 	uart2_printIntBase(n, base);
 	uart2_write('\r');
 	uart2_write('\n');
 }
 
-void uart2_printNum(int32_t n, uint8_t isfloat)
+void uart2_printNum(int64_t n, uint8_t isfloat)
 {
-	uint16_t int_part;
+	uint32_t int_part;
 	uint8_t remainder;
 
 	// Handle negative numbers
@@ -169,13 +175,13 @@ void uart2_printNum(int32_t n, uint8_t isfloat)
 	}
 
 	remainder = n % 100;
-	int_part = (uint16_t)((n - remainder) / 100);
+	int_part = (uint32_t)((n - remainder) / 100);
 	uart2_printIntBase(int_part, 10);
 	uart2_write('.');
 	uart2_printIntBase(remainder, 10);
 }
 
-void uart2_printlnNum(int32_t n, uint8_t isfloat)
+void uart2_printlnNum(int64_t n, uint8_t isfloat)
 {
 	uart2_printNum(n, isfloat);
 	uart2_write('\r');
