@@ -28,7 +28,7 @@
 #define TOTAL_PINS 37
 #endif
 
-#if !defined(STM32L031K6) && !defined(STM32L031K4) && &&!defined(STM32L031F6) && !defined(STM32L051C8)
+#if !defined(STM32L031K6) && !defined(STM32L031K4) && !defined(STM32L031F6) && !defined(STM32L051C8)
 #error "Se debe elegir entre STM32L031F6, STM32L031K6, STM32L031K4 o STM32L051C8"
 #endif
 
@@ -144,5 +144,5 @@ STM32_Pin_Info __PIN_MAP[TOTAL_PINS] =
 
 STM32_Pin_Info *HAL_Pin_Map()
 {
-    return __PIN_MAP;
+        return __PIN_MAP;
 }
