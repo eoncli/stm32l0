@@ -299,7 +299,7 @@ const ObjUart_t Serial2 = {
 		uart2_printlnNum,
 		uart2_printlnNumBase,
 		uart2_printlnFloat,
-}
+};
 #endif
 
 #endif
