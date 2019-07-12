@@ -17,7 +17,7 @@
  * @brief Macro for printing float numbers in lprint
  * 
  */
-#define FL(__x__) ((int64_t)((__x__)*100))
+#define FL(__x__) ((int)((__x__)*100))
 
 /**
  * @brief Macro to define the override LPUTC function
