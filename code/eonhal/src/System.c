@@ -24,7 +24,7 @@ uint32_t millis(void)
 /* ---------------------------------------------------------------------------*/
 
 /* System Clock Functions ----------------------------------------------------*/
-void System_HSI_32MHz(void)
+void CLOCK_HSI_32MHZ(void)
 {
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
@@ -78,7 +78,7 @@ void System_HSI_32MHz(void)
   LL_SYSTICK_EnableIT(); // added to enable Systick Interrupt for millis()
 }
 
-void System_HSI_8MHz(void)
+void CLOCK_HSI_8MHZ(void)
 {
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
@@ -130,7 +130,7 @@ void System_HSI_8MHz(void)
   LL_SYSTICK_EnableIT(); // added to enable Systick Interrupt for millis()
 }
 
-void System_HSI_6MHz(void)
+void CLOCK_HSI_6MHZ(void)
 {
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
@@ -184,7 +184,7 @@ void System_HSI_6MHz(void)
   LL_SYSTICK_EnableIT(); // added to enable Systick Interrupt for millis()
 }
 
-void System_HSI_4MHz(void)
+void CLOCK_HSI_4MHZ(void)
 {
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
@@ -236,7 +236,7 @@ void System_HSI_4MHz(void)
   LL_SYSTICK_EnableIT(); // added to enable Systick Interrupt for millis()
 }
 
-void System_MSI_2MHz(void)
+void CLOCK_MSI_2MHZ(void)
 {
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
