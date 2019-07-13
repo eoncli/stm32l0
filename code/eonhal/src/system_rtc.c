@@ -50,7 +50,7 @@
  ===============================================================================
  */
 
-__STATIC_INLINE void LSI_init(bool resetBKP)
+__STATIC_INLINE void LSI_init(void)
 {
 	LL_RCC_LSI_Enable();
 
@@ -59,15 +59,24 @@ __STATIC_INLINE void LSI_init(bool resetBKP)
 	{
 	}
 
-	LL_PWR_EnableBkUpAccess();
-
-	if (resetBKP)
-	{
-		LL_RCC_ForceBackupDomainReset();
-		LL_RCC_ReleaseBackupDomainReset();
-	}
-
 	LL_RCC_SetRTCClockSource(LL_RCC_RTC_CLKSOURCE_LSI);
+
+	LL_RCC_EnableRTC();
+
+	LL_RTC_DisableWriteProtection(RTC);
+	LL_RTC_WaitForSynchro(RTC);
+	LL_RTC_EnableWriteProtection(RTC);
+}
+
+__STATIC_INLINE void LSE_init(void)
+{
+	LL_RCC_LSE_Enable();
+
+	while (LL_RCC_LSE_IsReady() != 1)
+	{
+	};
+
+	LL_RCC_SetRTCClockSource(LL_RCC_RTC_CLKSOURCE_LSE);
 
 	LL_RCC_EnableRTC();
 
@@ -118,7 +127,39 @@ void rtc_initLsi(bool resetBKP)
 {
 	LL_RTC_InitTypeDef RTC_InitStruct;
 
-	LSI_init(resetBKP);
+	LL_PWR_EnableBkUpAccess();
+
+	if (resetBKP)
+	{
+		LL_RCC_ForceBackupDomainReset();
+		LL_RCC_ReleaseBackupDomainReset();
+	}
+
+	LSI_init();
+
+	/* Peripheral clock enable */
+	LL_RCC_EnableRTC();
+
+	/*Initialize RTC and set the Time and Date */
+	RTC_InitStruct.HourFormat = LL_RTC_HOURFORMAT_24HOUR;
+	RTC_InitStruct.AsynchPrescaler = 124;
+	RTC_InitStruct.SynchPrescaler = 295;
+	LL_RTC_Init(RTC, &RTC_InitStruct);
+}
+
+void rtc_initLse(bool resetBKP)
+{
+	LL_RTC_InitTypeDef RTC_InitStruct;
+
+	LL_PWR_EnableBkUpAccess();
+
+	if (resetBKP)
+	{
+		LL_RCC_ForceBackupDomainReset();
+		LL_RCC_ReleaseBackupDomainReset();
+	}
+
+	LSE_init();
 
 	/* Peripheral clock enable */
 	LL_RCC_EnableRTC();
