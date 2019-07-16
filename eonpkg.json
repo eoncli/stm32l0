@@ -7,7 +7,7 @@
   "script": "stm32_m0plus",
   "compiler": "arm-none-eabi",
   "programmer": "stcubeprog",
-  "modules": ["uart1", "uart2"],
+  "modules": ["adc", "uart1", "uart2"],
   "targets": [
     {
       "name": "stm32l031k6",
