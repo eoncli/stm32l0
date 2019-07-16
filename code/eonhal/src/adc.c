@@ -27,7 +27,7 @@
 
 // Number of samples taken from an ADC Channel, to get an average value
 // Note: It isn't the number of channels
-#define ADC_BUFFERSIZE 18 
+#define ADC_BUFFERSIZE 18
 #define ADC_SAMPLING_TIME LL_ADC_SAMPLINGTIME_1CYCLE_5
 
 /** 
@@ -46,7 +46,6 @@ static uint32_t _adc_sample_time = ADC_SAMPLING_TIME;
               ##### Functions #####
  ===============================================================================
  */
-
 
 void adc_setSampleTime(uint8_t ADC_SampleTime)
 {
@@ -111,7 +110,7 @@ uint16_t adc_readU(pin_t pin)
 		adcInitFirstTime = false;
 	}
 
-	if (adcChannelConfigured != PIN_MAP[pin].adcCH)
+	if (adcChannelConfigured != PIN_MAP[pin].adcCh)
 	{
 		LL_ADC_REG_SetSequencerChannels(ADC1, PIN_MAP[pin].adcCh);
 		adcChannelConfigured = PIN_MAP[pin].adcCh;
