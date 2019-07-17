@@ -137,7 +137,7 @@ uint16_t spi_calculatePrescaler(SPI_TypeDef *SPIx, uint32_t freq_hz)
 
 void spi_setFreq(SPI_TypeDef *SPIx, uint32_t freq_hz)
 {
-	uint16_t _baud = spi_CalculatePrescaler(SPIx, freq_hz);
+	uint16_t _baud = spi_calculatePrescaler(SPIx, freq_hz);
 	LL_SPI_SetBaudRatePrescaler(SPIx, _baud);
 }
 
@@ -479,5 +479,4 @@ void SPISlave_write16(SPI_TypeDef *SPIx, uint16_t val)
 	while (LL_SPI_IsActiveFlag_TXE(SPIx) == RESET)
 		;
 	SPIx->DR = (uint16_t)val;
-}
-* /
+}*/
