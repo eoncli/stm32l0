@@ -45,6 +45,8 @@ static uint8_t _af_speed = SPEED_LOW;
  */
 void gpio_mode(pin_t pin, mode_t mode, pull_t pull, speed_t speed)
 {
+	if (pin == NOPIN)
+		return;
 
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
@@ -97,6 +99,8 @@ void gpio_mode(pin_t pin, mode_t mode, pull_t pull, speed_t speed)
  */
 void gpio_modeAF(pin_t pin, mode_t afmode, pull_t pull, uint8_t afx)
 {
+	if (pin == NOPIN)
+		return;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
 	gpio_mode(pin, afmode, pull, _af_speed);
@@ -114,6 +118,8 @@ void gpio_modeAF(pin_t pin, mode_t afmode, pull_t pull, uint8_t afx)
  */
 void gpio_modeUART(pin_t pin)
 {
+	if (pin == NOPIN)
+		return;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
 	gpio_mode(pin, AF_PP, NOPULL, _af_speed);
@@ -131,6 +137,8 @@ void gpio_modeUART(pin_t pin)
  */
 void gpio_modeSPI(pin_t pin)
 {
+	if (pin == NOPIN)
+		return;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
 	gpio_mode(pin, AF_PP, NOPULL, _af_speed);
@@ -148,6 +156,8 @@ void gpio_modeSPI(pin_t pin)
  */
 void gpio_modeI2C(pin_t pin)
 {
+	if (pin == NOPIN)
+		return;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
 	gpio_mode(pin, AF_OD, NOPULL, _af_speed);
@@ -165,6 +175,8 @@ void gpio_modeI2C(pin_t pin)
  */
 void gpio_modePWM(pin_t pin)
 {
+	if (pin == NOPIN)
+		return;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
 	gpio_mode(pin, AF_PP, NOPULL, _af_speed);

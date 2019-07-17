@@ -1,29 +1,28 @@
 {
-  "name": "stm32l0",
-  "author": "Eon Team",
-  "type": "platform",
-  "version": "1.0.0",
-  "mcpu": "cortex-m0plus",
-  "script": "stm32_m0plus",
-  "compiler": "arm-none-eabi",
-  "programmer": "stcubeprog",
-  "modules": ["adc", "uart1", "uart2"],
-  "targets": [
-    {
-      "name": "stm32l031k6",
-      "variant": "STM32L031xx"
-    },
-    {
-      "name": "stm32l031k4",
-      "variant": "STM32L031xx"
-    },
-    {
-      "name": "stm32l031f4",
-      "variant": "STM32L031xx"
-    },
-    {
-      "name": "stm32l051c8",
-      "variant": "STM32L051xx"
-    }
-  ]
+    "name": "stm32l0",
+    "author": "Eon Team",
+    "type": "platform",
+    "version": "1.0.0",
+    "mcpu": "cortex-m0plus",
+    "script": "stm32_m0plus",
+    "compiler": "arm-none-eabi",
+    "programmer": "stcubeprog",
+    "modules": ["adc", "uart1", "uart2", "spi"],
+    "targets": [{
+            "name": "stm32l031k6",
+            "variant": "STM32L031xx"
+        },
+        {
+            "name": "stm32l031k4",
+            "variant": "STM32L031xx"
+        },
+        {
+            "name": "stm32l031f4",
+            "variant": "STM32L031xx"
+        },
+        {
+            "name": "stm32l051c8",
+            "variant": "STM32L051xx"
+        }
+    ]
 }
