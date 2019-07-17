@@ -217,7 +217,7 @@ void spi_writeMultiple8(SPI_TypeDef *SPIx, const uint8_t *pTData, uint8_t *pRDat
 uint8_t spi_read8(SPI_TypeDef *SPIx)
 {
 	/* Dummy Byte: 0xFF */
-	return (uint8_t)SPI_Write8(SPIx, 0xFF);
+	return (uint8_t)spi_write8(SPIx, 0xFF);
 }
 
 /**
@@ -317,7 +317,7 @@ void spi_writeMultiple16(SPI_TypeDef *SPIx, const uint16_t *pTData, uint16_t *pR
 uint16_t spi_read16(SPI_TypeDef *SPIx)
 {
 	/* Dummy Byte: 0xFFFF */
-	return (uint16_t)SPI_Write16(SPIx, 0xFFFF);
+	return (uint16_t)spi_write16(SPIx, 0xFFFF);
 }
 
 /**
