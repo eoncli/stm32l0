@@ -42,6 +42,7 @@ typedef struct
 #define ___TIM_GET_IT_UPD(__TIMX__) ((LL_TIM_ReadReg(__TIMX__, DIER) & LL_TIM_DIER_UIE) == LL_TIM_DIER_UIE)
 #define ___TIM_GET_FLAG_UPD(__TIMX__) ((LL_TIM_ReadReg(__TIMX__, SR) & LL_TIM_SR_UIF) == LL_TIM_SR_UIF)
 
+#ifdef TIM2
 #define IRQ_TIM2()                                                              \
   void __shadow_tim2(void);                                                     \
   void TIM2_IRQHandler(void)                                                    \
@@ -53,6 +54,49 @@ typedef struct
     }                                                                           \
   }                                                                             \
   void __shadow_tim2(void)
+#endif
+
+#ifdef TIM21
+#define IRQ_TIM21()                                                               \
+  void __shadow_tim21(void);                                                      \
+  void TIM21_IRQHandler(void)                                                     \
+  {                                                                               \
+    if ((___TIM_GET_IT_UPD(TIM21) != RESET) && (___TIM_GET_FLAG_UPD(TIM21) == 1)) \
+    {                                                                             \
+      LL_TIM_ClearFlag_UPDATE(TIM21);                                             \
+      __shadow_tim21();                                                           \
+    }                                                                             \
+  }                                                                               \
+  void __shadow_tim21(void)
+#endif
+
+#ifdef TIM22
+#define IRQ_TIM22()                                                               \
+  void __shadow_tim22(void);                                                      \
+  void TIM22_IRQHandler(void)                                                     \
+  {                                                                               \
+    if ((___TIM_GET_IT_UPD(TIM22) != RESET) && (___TIM_GET_FLAG_UPD(TIM22) == 1)) \
+    {                                                                             \
+      LL_TIM_ClearFlag_UPDATE(TIM22);                                             \
+      __shadow_tim22();                                                           \
+    }                                                                             \
+  }                                                                               \
+  void __shadow_tim22()
+#endif
+
+#ifdef TIM6
+#define IRQ_TIM6()                                                              \
+  void __shadow_tim6(void);                                                     \
+  void TIM6_IRQHandler(void)                                                    \
+  {                                                                             \
+    if ((___TIM_GET_IT_UPD(TIM6) != RESET) && (___TIM_GET_FLAG_UPD(TIM6) == 1)) \
+    {                                                                           \
+      LL_TIM_ClearFlag_UPDATE(TIM6);                                            \
+      __shadow_tim6();                                                          \
+    }                                                                           \
+  }                                                                             \
+  void __shadow_tim6(void)
+#endif
 
 /** 
  ===============================================================================
