@@ -36,9 +36,6 @@
 
 void i2c_init(I2C_TypeDef *I2Cx, uint32_t freq, pin_t scl, pin_t sda)
 {
-	uint8_t _scl_i2c_af = 0;
-	uint8_t _sda_i2c_af = 0;
-
 #ifdef I2C1
 	if (I2Cx == I2C1)
 	{
