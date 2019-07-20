@@ -195,7 +195,7 @@ void pwm_init4MHz(pin_t pin)
  ===============================================================================
  */
 
-void pmw_write(pin_t pin, uint16_t val)
+void pwm_write(pin_t pin, uint16_t val)
 {
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 	if (val > pin_map[pin].TIMx->ARR)
