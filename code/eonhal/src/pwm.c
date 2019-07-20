@@ -52,8 +52,6 @@ static void pwm_enableTim(TIM_TypeDef *TIMx)
 
 void pwm_init(pin_t pin, uint32_t prescaler, uint32_t period)
 {
-	uint8_t _af_tim;
-	uint8_t timerx_initialized;
 	LL_TIM_InitTypeDef pwm_time_base;
 	LL_TIM_OC_InitTypeDef pwm_output_compare;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
@@ -88,8 +86,6 @@ void pwm_init(pin_t pin, uint32_t prescaler, uint32_t period)
 void pwm_init1KHz(pin_t pin)
 {
 	uint32_t timer_source_freq;
-	uint8_t _af_tim;
-	uint8_t timerx_initialized;
 	LL_TIM_InitTypeDef pwm_time_base;
 	LL_TIM_OC_InitTypeDef pwm_output_compare;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
@@ -126,8 +122,6 @@ void pwm_init1KHz(pin_t pin)
 void pwm_init500Hz(pin_t pin)
 {
 	uint32_t timer_source_freq;
-	uint8_t _af_tim;
-	uint8_t timerx_initialized;
 	LL_TIM_InitTypeDef pwm_time_base;
 	LL_TIM_OC_InitTypeDef pwm_output_compare;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
@@ -161,16 +155,12 @@ void pwm_init500Hz(pin_t pin)
 	LL_TIM_EnableCounter(pin_map[pin].TIMx);
 }
 
+// TODO: what should be the name??
 void pwm_init4MHz(pin_t pin)
 {
-	uint32_t timer_source_freq;
-	uint8_t _af_tim;
-	uint8_t timerx_initialized;
 	LL_TIM_InitTypeDef pwm_time_base;
 	LL_TIM_OC_InitTypeDef pwm_output_compare;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
-
-	timer_source_freq = tim_getSrcClk(pin_map[pin].TIMx);
 
 	gpio_modePWM(pin);
 
