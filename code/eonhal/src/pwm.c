@@ -94,6 +94,8 @@ void pwm_init1KHz(pin_t pin)
 	LL_TIM_OC_InitTypeDef pwm_output_compare;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
+	timer_source_freq = tim_getSrcClk(pin_map[pin].TIMx);
+
 	gpio_modePWM(pin);
 
 	if ((LL_TIM_GetPrescaler(pin_map[pin].TIMx) != ((timer_source_freq / 1000000) - 1)) ||
@@ -130,6 +132,8 @@ void pwm_init500Hz(pin_t pin)
 	LL_TIM_OC_InitTypeDef pwm_output_compare;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
 
+	timer_source_freq = tim_getSrcClk(pin_map[pin].TIMx);
+
 	gpio_modePWM(pin);
 
 	if ((LL_TIM_GetPrescaler(pin_map[pin].TIMx) != ((2 * timer_source_freq / 1000000) - 1)) ||
@@ -165,6 +169,8 @@ void pwm_init4MHz(pin_t pin)
 	LL_TIM_InitTypeDef pwm_time_base;
 	LL_TIM_OC_InitTypeDef pwm_output_compare;
 	STM32_Pin_Info *pin_map = HAL_Pin_Map();
+
+	timer_source_freq = tim_getSrcClk(pin_map[pin].TIMx);
 
 	gpio_modePWM(pin);
 
