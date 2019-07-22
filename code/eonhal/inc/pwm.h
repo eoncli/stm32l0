@@ -20,10 +20,10 @@
  ===============================================================================
  */
 
-void pwm_init(pin_t pin, uint32_t prescaler, uint32_t period);
-void pwm_init1KHz(pin_t pin);
-void pwm_init500Hz(pin_t pin);
-void pwm_init4MHz(pin_t pin);
+void pwm_init(TIM_TypeDef *TIMx, uint32_t prescaler, uint32_t period);
+void pwm_init1KHz(TIM_TypeDef *TIMx);
+void pwm_init500Hz(TIM_TypeDef *TIMx);
+void pwm_pinEnable(pin_t pin);
 void pwm_write(pin_t pin, uint16_t val);
 
 #endif
