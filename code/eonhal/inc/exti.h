@@ -20,9 +20,9 @@
  */
 
 // Exti Modes
-#define EXTI_CHANGE ((uint8_t)0x00)  //EXTI_Trigger_Rising_Falling
-#define EXTI_RISING ((uint8_t)0x01)  //EXTI_Trigger_Rising
-#define EXTI_FALLING ((uint8_t)0x02) //EXTI_Trigger_Falling
+#define CHANGE ((uint8_t)0x00)  //EXTI_Trigger_Rising_Falling
+#define RISING ((uint8_t)0x01)  //EXTI_Trigger_Rising
+#define FALLING ((uint8_t)0x02) //EXTI_Trigger_Falling
 
 /** 
  ===============================================================================

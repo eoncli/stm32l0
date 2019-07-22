@@ -103,11 +103,11 @@ static uint8_t GPIO_EXTIConfig(pin_t pin, uint8_t exti_mode, pull_t pull)
 	LL_EXTI_DisableFallingTrig_0_31(pin_map[pin].pin);
 	LL_EXTI_DisableRisingTrig_0_31(pin_map[pin].pin);
 
-	if (exti_mode == EXTI_RISING || exti_mode == EXTI_CHANGE)
+	if (exti_mode == RISING || exti_mode == CHANGE)
 	{
 		LL_EXTI_EnableRisingTrig_0_31(pin_map[pin].pin);
 	}
-	else if (exti_mode == EXTI_FALLING || exti_mode == EXTI_CHANGE)
+	else if (exti_mode == FALLING || exti_mode == CHANGE)
 	{
 		LL_EXTI_EnableFallingTrig_0_31(pin_map[pin].pin);
 	}
