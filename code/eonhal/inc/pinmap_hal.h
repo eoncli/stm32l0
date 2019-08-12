@@ -340,6 +340,60 @@ extern "C"
 
 #endif
 
+#if defined(CMWX1ZZABZ_091)
+#define PA0 0
+#define PA2 1
+#define PA3 2
+#define PA4 3
+#define PA5 4
+#define PA8 5
+#define PA9 6
+#define PA10 7
+#define PA11 8
+#define PA12 9
+#define PA13 10
+#define PA14 11
+
+#define PB2 12
+#define PB5 13
+#define PB6 14
+#define PB7 15
+#define PB8 16
+#define PB9 17
+#define PB12 18
+#define PB13 19
+#define PB14 20
+#define PB15 21
+
+#define PH0 22
+#define PH1 23
+
+// Dedicated pins connected to SX1276 radio
+#define RADIO_RST 24                 //PC0  -- this pin is not exposed
+#define RADIO_MOSI 25                //PA7  -- this pin is not exposed
+#define RADIO_MISO 26                //PA6  -- this pin is not exposed
+#define RADIO_SCLK 27                //PB3  -- this pin is not exposed
+#define RADIO_CS 28                  //PA15 -- this pin is not exposed
+#define RADIO_DIO0 29                //PB4 -- exposed but it must not be a good idea manipulate this pin for other function
+#define RADIO_DIO1 30                //PB1 -- exposed but it must not be a good idea manipulate this pin for other function
+#define RADIO_DIO2 31                //PB0 -- exposed but it must not be a good idea manipulate this pin for other function
+#define RADIO_DIO3 32                //PC13 -- exposed but it must not be a good idea manipulate this pin for other function
+#define RADIO_ANT_SWITCH_RX 33       //CRF1/PA1 -- exposed but it must not be a good idea manipulate this pin for other function
+#define RADIO_ANT_SWITCH_TX_RFO 34   //CRF2/PC2 -- exposed but it must not be a good idea manipulate this pin for other function
+#define RADIO_ANT_SWITCH_TX_BOOST 35 //CRF3/PC1 -- exposed but it must not be a good idea manipulate this pin for other function
+
+// Dedicated pins connected to STSAFE
+#define STSAFE_SCL 36 // PB10 - not exposed, connected internally to STSAFE by I2C2
+#define STSAFE_SDA 37 // PB11 - not exposed, connected internally to STSAFE by I2C2
+
+/*
+Notes: 
+ - DIO4 and DIO5 pins on Murate module are lines directly from SX1276
+ - PB10 (SCL) and PB11 (SDA) are connected internally to STSAFE by I2C2
+ - PC14 and PC15 are connected internally to a 32khz oscillator
+*/
+#endif /* CMWX1ZZABZ_091 */
+
 // **** Other Pin Definitions
 #define NOPIN 255
 #define UNUSED(__X__) ((void)(__X__))

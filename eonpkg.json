@@ -23,6 +23,10 @@
         {
             "name": "stm32l051c8",
             "variant": "STM32L051xx"
+        },
+        {
+            "name": "cmwx1zzabz_091",
+            "variant": "STM32L072xx"
         }
     ]
 }
