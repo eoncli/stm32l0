@@ -16,13 +16,17 @@
  ===============================================================================
  */
 
+#if !defined(DATA_EEPROM_END)
+#define DATA_EEPROM_END DATA_EEPROM_BANK1_END
+#endif
+
 // FLASH Timeout
 #define FLASH_TIMEOUT_VALUE (50000U) // 50 s
 
 // FLASH Keys
 #define FLASH_PEKEY1 ((uint32_t)0x89ABCDEFU) /*!< Flash program erase key1 */
-#define FLASH_PEKEY2 ((uint32_t)0x02030405U) /*!< Flash program erase key: used with FLASH_PEKEY2          \ \ \ \ \ \ \ \
-																								 to unlock the write access to the FLASH_PECR register and \ \ \ \ \ \ \ \
+#define FLASH_PEKEY2 ((uint32_t)0x02030405U) /*!< Flash program erase key: used with FLASH_PEKEY2          \ \ \ \ \ \ \ \ \
+																								 to unlock the write access to the FLASH_PECR register and \ \ \ \ \ \ \ \ \
 																								 data EEPROM */
 
 #define IS_FLASH_EEPROM_ADDRESS(__ADDRESS__) (((__ADDRESS__) >= DATA_EEPROM_BASE) && ((__ADDRESS__) <= DATA_EEPROM_END))
