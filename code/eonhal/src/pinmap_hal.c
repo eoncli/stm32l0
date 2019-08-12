@@ -29,10 +29,10 @@
 #endif
 
 #if defined(CMWX1ZZABZ_091)
-#define TOTAL_PINS	38 // 27 normal pins + 11 dedicated pins
+#define TOTAL_PINS 38 // 27 normal pins + 11 dedicated pins
 #endif
 
-#if !defined(STM32L031K6) && !defined(STM32L031K4) && !defined(STM32L031F6) && !defined(STM32L051C8) && !defined(CMWX1ZZABZ_091) 
+#if !defined(STM32L031K6) && !defined(STM32L031K4) && !defined(STM32L031F6) && !defined(STM32L051C8) && !defined(CMWX1ZZABZ_091)
 #error "Se debe elegir entre STM32L031F6, STM32L031K6, STM32L031K4, STM32L051C8 o CMWX1ZZABZ_091"
 #endif
 
@@ -173,21 +173,21 @@ STM32_Pin_Info __PIN_MAP[TOTAL_PINS] =
         /* PH0 - 22*/ {GPIOH, LL_GPIO_PIN_0, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},
         /* PH1 - 23*/ {GPIOH, LL_GPIO_PIN_1, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},
 
-        /* RADIO_RST/PC0 - 24*/ {GPIOC, LL_GPIO_PIN_0, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                      // dedicated pin of module
-        /* RADIO_MOSI/PA7 - 25*/ {GPIOA, LL_GPIO_PIN_7, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_0, AF_NONE, AF_NONE},                        // dedicated pin of module
-        /* RADIO_MISO/PA6 - 26*/ {GPIOA, LL_GPIO_PIN_6, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_0, AF_NONE, AF_NONE},                        // dedicated pin of module
-        /* RADIO_SCLK/PB3 - 27*/ {GPIOB, LL_GPIO_PIN_3, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_0, AF_NONE, AF_NONE},                        // dedicated pin of module
-        /* RADIO_CS/PA15 - 28*/ {GPIOA, LL_GPIO_PIN_15, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
-        /* RADIO_DIO0/PB4 - 29*/ {GPIOB, LL_GPIO_PIN_4, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
-        /* RADIO_DIO1/PB1 - 30*/ {GPIOB, LL_GPIO_PIN_1, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
-        /* RADIO_DIO2/PB0 - 31*/ {GPIOB, LL_GPIO_PIN_0, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
-        /* RADIO_DIO3/PC13 - 32*/ {GPIOC, LL_GPIO_PIN_13, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                   // dedicated pin of module
-        /* RADIO_ANT_SWITCH_RX/CRF1/PA1 - 33*/ {GPIOA, LL_GPIO_PIN_1, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},       // dedicated pin of module
-        /* RADIO_ANT_SWITCH_TX_RFO/CRF2/PC2 - 34*/ {GPIOC, LL_GPIO_PIN_2, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},   // dedicated pin of module
-        /* RADIO_ANT_SWITCH_TX_BOOST/CRF3/PC1 - 35*/ {GPIOC, LL_GPIO_PIN_1, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE}, // dedicated pin of module
+        /* RADIO_RST/PC0 - 24*/ {GPIOC, LL_GPIO_PIN_0, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                      // dedicated pin of module
+        /* RADIO_MOSI/PA7 - 25*/ {GPIOA, LL_GPIO_PIN_7, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_0, AF_NONE, AF_NONE},                        // dedicated pin of module
+        /* RADIO_MISO/PA6 - 26*/ {GPIOA, LL_GPIO_PIN_6, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_0, AF_NONE, AF_NONE},                        // dedicated pin of module
+        /* RADIO_SCLK/PB3 - 27*/ {GPIOB, LL_GPIO_PIN_3, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_0, AF_NONE, AF_NONE},                        // dedicated pin of module
+        /* RADIO_CS/PA15 - 28*/ {GPIOA, LL_GPIO_PIN_15, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
+        /* RADIO_DIO0/PB4 - 29*/ {GPIOB, LL_GPIO_PIN_4, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
+        /* RADIO_DIO1/PB1 - 30*/ {GPIOB, LL_GPIO_PIN_1, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
+        /* RADIO_DIO2/PB0 - 31*/ {GPIOB, LL_GPIO_PIN_0, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                     // dedicated pin of module
+        /* RADIO_DIO3/PC13 - 32*/ {GPIOC, LL_GPIO_PIN_13, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},                   // dedicated pin of module
+        /* RADIO_ANT_SWITCH_RX/CRF1/PA1 - 33*/ {GPIOA, LL_GPIO_PIN_1, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},       // dedicated pin of module
+        /* RADIO_ANT_SWITCH_TX_RFO/CRF2/PC2 - 34*/ {GPIOC, LL_GPIO_PIN_2, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE},   // dedicated pin of module
+        /* RADIO_ANT_SWITCH_TX_BOOST/CRF3/PC1 - 35*/ {GPIOC, LL_GPIO_PIN_1, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_NONE, AF_NONE}, // dedicated pin of module
 
-        /* STSAFE_SCL - 36*/ {GPIOB, LL_GPIO_PIN_10, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_6, AF_NONE}, // dedicated pin of module
-        /* STSAFE_SDA - 37*/ {GPIOB, LL_GPIO_PIN_11, ADC_CHANNEL_NONE, NULL, NONE, AF_NONE, AF_NONE, AF_6, AF_NONE}, // dedicated pin of module
+        /* STSAFE_SCL - 36*/ {GPIOB, LL_GPIO_PIN_10, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_6, AF_NONE}, // dedicated pin of module
+        /* STSAFE_SDA - 37*/ {GPIOB, LL_GPIO_PIN_11, ADC_CHANNEL_NONE, NULL, TIM_CHANNEL_NONE, AF_NONE, AF_NONE, AF_6, AF_NONE}, // dedicated pin of module
 
 #endif
 };
