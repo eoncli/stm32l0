@@ -287,6 +287,7 @@ void rtc_setAlarmA(uint8_t RTC_ALARM_TYPE_X, uint8_t day_weekday, uint8_t hours,
 	LL_RTC_DisableIT_ALRA(RTC);
 	LL_RTC_ClearFlag_ALRA(RTC);
 	LL_EXTI_ClearFlag_0_31(RTC_EXTI_LINE_ALARM);
+	NVIC_ClearPendingIRQ(RTC_IRQn);
 	LL_RTC_EnableWriteProtection(RTC);
 
 	NVIC_SetPriority(RTC_IRQn, RTC_PRIORITY);
@@ -332,6 +333,7 @@ void rtc_setAlarmB(uint8_t RTC_ALARM_TYPE_X, uint8_t day_weekday, uint8_t hours,
 	LL_RTC_DisableIT_ALRB(RTC);
 	LL_RTC_ClearFlag_ALRB(RTC);
 	LL_EXTI_ClearFlag_0_31(RTC_EXTI_LINE_ALARM);
+	NVIC_ClearPendingIRQ(RTC_IRQn);
 	LL_RTC_EnableWriteProtection(RTC);
 
 	NVIC_SetPriority(RTC_IRQn, RTC_PRIORITY);
@@ -381,6 +383,7 @@ void rtc_setAlarmAAfter(uint32_t seconds)
 	LL_RTC_DisableIT_ALRA(RTC);
 	LL_RTC_ClearFlag_ALRA(RTC);
 	LL_EXTI_ClearFlag_0_31(RTC_EXTI_LINE_ALARM);
+	NVIC_ClearPendingIRQ(RTC_IRQn);
 	LL_RTC_EnableWriteProtection(RTC);
 
 	if (seconds == 0)
@@ -422,6 +425,7 @@ void rtc_setAlarmBAfter(uint32_t seconds)
 	LL_RTC_DisableIT_ALRB(RTC);
 	LL_RTC_ClearFlag_ALRB(RTC);
 	LL_EXTI_ClearFlag_0_31(RTC_EXTI_LINE_ALARM);
+	NVIC_ClearPendingIRQ(RTC_IRQn);
 	LL_RTC_EnableWriteProtection(RTC);
 
 	if (seconds == 0)
