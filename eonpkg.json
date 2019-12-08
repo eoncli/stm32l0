@@ -3,10 +3,11 @@
     "author": "Eon Team",
     "type": "platform",
     "version": "1.0.0",
+    "core": "FPabl0/eon-arm-cortex-m",
+    "compiler": "FPabl0/eon-arm-none-eabi",
+    "programmer": "FPabl0/eon-stcubeprog",
     "mcpu": "cortex-m0plus",
     "script": "stm32_m0plus",
-    "compiler": "arm-none-eabi",
-    "programmer": "stcubeprog",
     "modules": ["adc", "uart1", "uart2", "spi", "i2c", "tim", "pwm", "exti"],
     "targets": [{
             "name": "stm32l031k6",
