@@ -1,33 +1,33 @@
 {
-    "name": "stm32l0",
-    "author": "Eon Team",
-    "type": "platform",
-    "version": "1.0.0",
-    "core": "FPabl0/eon-arm-cortex-m",
-    "compiler": "FPabl0/eon-arm-none-eabi",
-    "programmer": "FPabl0/eon-stcubeprog",
-    "mcpu": "cortex-m0plus",
-    "script": "stm32_m0plus",
-    "modules": ["adc", "uart1", "uart2", "spi", "i2c", "tim", "pwm", "exti"],
-    "targets": [{
-            "name": "stm32l031k6",
-            "variant": "STM32L031xx"
-        },
-        {
-            "name": "stm32l031k4",
-            "variant": "STM32L031xx"
-        },
-        {
-            "name": "stm32l031f4",
-            "variant": "STM32L031xx"
-        },
-        {
-            "name": "stm32l051c8",
-            "variant": "STM32L051xx"
-        },
-        {
-            "name": "cmwx1zzabz_091",
-            "variant": "STM32L072xx"
-        }
-    ]
+  "name": "stm32l0",
+  "author": "Eon Team",
+  "type": "platform",
+  "version": "1.0.0",
+  "compiler": "arm-none-eabi",
+  "programmer": "stcubeprog",
+  "mcpu": "cortex-m0plus",
+  "script": "stm32_m0plus",
+  "modules": ["adc", "uart1", "uart2", "spi", "i2c", "tim", "pwm", "exti"],
+  "targets": [
+    {
+      "name": "stm32l031k6",
+      "variant": "STM32L031xx"
+    },
+    {
+      "name": "stm32l031k4",
+      "variant": "STM32L031xx"
+    },
+    {
+      "name": "stm32l031f4",
+      "variant": "STM32L031xx"
+    },
+    {
+      "name": "stm32l051c8",
+      "variant": "STM32L051xx"
+    },
+    {
+      "name": "cmwx1zzabz_091",
+      "variant": "STM32L072xx"
+    }
+  ]
 }
